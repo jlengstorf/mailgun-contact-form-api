@@ -46,7 +46,7 @@ const sendMessage = (data, successCB, errorCB) => {
 
   // Send the message, then call the appropriate callback.
   mg.messages.create(process.env.MAILGUN_DOMAIN, message)
-    .then(successCB || noop)
+    .then(successCB)
     .catch(errorCB || noop);
 };
 
