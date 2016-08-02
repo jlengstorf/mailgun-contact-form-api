@@ -1,6 +1,6 @@
 {
   "name": "mailgun-contact-form-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple API to handle contact form submissions and send messages using Mailgun.",
   "main": "app/index.js",
   "scripts": {
