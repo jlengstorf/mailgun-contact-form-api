@@ -1,0 +1,39 @@
+{
+  "name": "mailgun-contact-form-api",
+  "version": "0.0.0",
+  "description": "Simple API to handle contact form submissions and send messages using Mailgun.",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "node app",
+    "test": "node spec/runTests",
+    "cover": "istanbul cover spec/runTests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlengstorf/mailgun-contact-form-api.git"
+  },
+  "keywords": [
+    "mailgun",
+    "api",
+    "contact",
+    "form"
+  ],
+  "author": "Jason Lengstorf <jason@lengstorf.com> (@jlengstorf)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlengstorf/mailgun-contact-form-api/issues"
+  },
+  "homepage": "https://github.com/jlengstorf/mailgun-contact-form-api#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "hapi": "^14.0.0",
+    "lodash.escape": "^4.0.1",
+    "mailgun.js": "^2.0.1"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.4",
+    "jasmine": "^2.4.1",
+    "jasmine-terminal-reporter": "^1.0.2",
+    "mockery": "^1.7.0"
+  }
+}
