@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app",
     "test": "node spec/runTests && npm run cover",
-    "cover": "istanbul cover spec/runTests.js --report lcovonly -- -R spec && codecov"
+    "cover": "istanbul cover spec/runTests.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "mailgun.js": "^2.0.1"
   },
   "devDependencies": {
-    "codecov": "^1.0.1",
     "istanbul": "^0.4.4",
     "jasmine": "^2.4.1",
     "jasmine-terminal-reporter": "^1.0.2",

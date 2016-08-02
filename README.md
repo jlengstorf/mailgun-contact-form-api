@@ -1,6 +1,6 @@
 # Mailgun Contact Form API
 
-[![Build Status](https://travis-ci.org/jlengstorf/mailgun-contact-form-api.svg?branch=master)](https://travis-ci.org/jlengstorf/mailgun-contact-form-api) [![codecov](https://codecov.io/gh/jlengstorf/mailgun-contact-form-api/branch/master/graph/badge.svg)](https://codecov.io/gh/jlengstorf/mailgun-contact-form-api)
+[![Build Status](https://travis-ci.org/jlengstorf/mailgun-contact-form-api.svg?branch=master)](https://travis-ci.org/jlengstorf/mailgun-contact-form-api)
 
 Simple Node.js REST API to handle contact form submissions. Developed as part of a tutorial.
 
