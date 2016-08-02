@@ -54,12 +54,10 @@ exports.register = (server, options, next) => {
 
       // Send off the message
       Mailgun.sendMessage(message, response => {
-        if (!response.status) {
-          reply({
-            statusCode: 200,
-            message: 'Your message was sent successfully.',
-          });
-        }
+        reply({
+          statusCode: 200,
+          message: 'Your message was sent successfully.',
+        });
       }, error => {
         reply({
           statusCode: error.status,
