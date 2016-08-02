@@ -12,6 +12,21 @@ require('dotenv').config();
 // A no-op function to use as a fallback if no callbacks are supplied.
 const noop = () => {};
 
+const getMailgunClient = apiKey => {
+  return mailgun.client({ key: apiKey, username: 'api' });
+};
+
+const buildMessageData = (data) => {
+  const domain = process.env.MAILGUN_DOMAIN;
+
+  return {
+    from: data.from || `${domain} <donotreply@${domain}>`,
+    to: process.env.CONTACT_FORM_SENDS_TO,
+    subject: data.subject || '',
+    html: data.html,
+  };
+};
+
 /**
  * Sends a message using the Mailgun API.
  * @param  {object}   data      the message data
@@ -20,19 +35,14 @@ const noop = () => {};
  * @return {void}
  */
 const sendMessage = (data, successCB, errorCB) => {
-  const mg = mailgun.client({ key: process.env.MAILGUN_API_KEY, username: 'api' });
+  const mg = getMailgunClient(process.env.MAILGUN_API_KEY);
 
   /*
    * Organize the message into the format required by the Mailgun API.
    * See https://documentation.mailgun.com/api-sending.html#sending and
    * https://www.npmjs.com/package/mailgun.js#create for details.
    */
-  const message = {
-    from: data.from || `${domain} <donotreply@${domain}>`,
-    to: process.env.CONTACT_FORM_SENDS_TO,
-    subject: data.subject,
-    html: data.html,
-  };
+  const message = buildMessageData(data);
 
   // Send the message, then call the appropriate callback.
   mg.messages.create(process.env.MAILGUN_DOMAIN, message)
@@ -41,5 +51,7 @@ const sendMessage = (data, successCB, errorCB) => {
 };
 
 module.exports = {
+  getMailgunClient,
+  buildMessageData,
   sendMessage,
 };
