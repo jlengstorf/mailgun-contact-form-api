@@ -5,9 +5,9 @@
   "main": "app/index.js",
   "scripts": {
     "start": "node app",
-    "test": "npm run js-style && npm run cover",
+    "test": "npm run js-style --silent && npm run cover",
     "cover": "istanbul cover spec/runTests.js",
-    "js-style": "jscs app/ spec/ || true"
+    "js-style": "jscs app/ spec/"
   },
   "repository": {
     "type": "git",
