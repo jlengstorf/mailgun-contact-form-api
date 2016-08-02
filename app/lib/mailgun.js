@@ -12,9 +12,10 @@ require('dotenv').config();
 // A no-op function to use as a fallback if no callbacks are supplied.
 const noop = () => {};
 
-const getMailgunClient = apiKey => {
-  return mailgun.client({ key: apiKey, username: 'api' });
-};
+const getMailgunClient = apiKey => mailgun.client({
+  key: apiKey,
+  username: 'api',
+});
 
 const buildMessageData = (data) => {
   const domain = process.env.MAILGUN_DOMAIN;

@@ -5,8 +5,9 @@
   "main": "app/index.js",
   "scripts": {
     "start": "node app",
-    "test": "node spec/runTests && npm run cover",
-    "cover": "istanbul cover spec/runTests.js"
+    "test": "npm run js-style && npm run cover",
+    "cover": "istanbul cover spec/runTests.js",
+    "js-style": "jscs app/ spec/ || true"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "istanbul": "^0.4.4",
     "jasmine": "^2.4.1",
     "jasmine-terminal-reporter": "^1.0.2",
+    "jscs": "^3.0.7",
     "mockery": "^1.7.0"
   }
 }

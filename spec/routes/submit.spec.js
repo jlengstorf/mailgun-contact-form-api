@@ -1,8 +1,9 @@
+/* eslint-env jasmine */
 'use strict';
 
 const mockery = require('mockery');
-const mailgun_success = require('../helpers/mock_mailgun_success');
-const mailgun_failure = require('../helpers/mock_mailgun_failure');
+const mailgunSuccess = require('../helpers/mock_mailgun_success');
+const mailgunFailure = require('../helpers/mock_mailgun_failure');
 
 describe('Form submission', () => {
 
@@ -28,7 +29,7 @@ describe('Form submission', () => {
     describe('that succeeds', () => {
 
       beforeEach(() => {
-        mockery.registerMock('../lib/mailgun', mailgun_success);
+        mockery.registerMock('../lib/mailgun', mailgunSuccess);
         mockery.enable({ useCleanCache: true, warnOnUnregistered: false });
 
         this.server = require('../../app/server').createServer();
@@ -43,7 +44,8 @@ describe('Form submission', () => {
 
       it('responds with a helpful message', done => {
         this.server.inject(this.options, response => {
-          expect(response.result.message).toBe('Your message was sent successfully.');
+          expect(response.result.message)
+            .toBe('Your message was sent successfully.');
           done();
         });
       });
@@ -53,7 +55,7 @@ describe('Form submission', () => {
     describe('that fails', () => {
 
       beforeEach(() => {
-        mockery.registerMock('../lib/mailgun', mailgun_failure);
+        mockery.registerMock('../lib/mailgun', mailgunFailure);
         mockery.enable({ useCleanCache: true, warnOnUnregistered: false });
 
         this.server = require('../../app/server').createServer();
@@ -61,7 +63,9 @@ describe('Form submission', () => {
 
       it('responds with a useful error message', done => {
         this.server.inject(this.options, response => {
-          expect(response.result.message).toBe('Something went wrong sending the message. Please try again.');
+          expect(response.result.message)
+            .toBe('Something went wrong sending the message. Please try again.');
+
           done();
         });
       });
@@ -95,7 +99,8 @@ describe('Form submission', () => {
 
     it('provides a helpful error message', done => {
       this.server.inject(this.options, response => {
-        expect(response.result.messages[0].message).toBe('A valid email address is required.');
+        expect(response.result.messages[0].message)
+          .toBe('A valid email address is required.');
         done();
       });
     });

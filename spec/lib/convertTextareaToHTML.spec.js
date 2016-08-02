@@ -27,24 +27,29 @@ describe('Convert textarea field value to HTML', () => {
     };
   });
 
-  it("converts \\r\\n to <br>\\r\\n", () => {
-    expect(convertTextareaToHTML(this.returnAndNewLine.original)).toBe(this.returnAndNewLine.expected);
+  it('converts \\r\\n to <br>\\r\\n', () => {
+    expect(convertTextareaToHTML(this.returnAndNewLine.original))
+      .toBe(this.returnAndNewLine.expected);
   });
 
-  it("converts \\n\\r to <br>\\n\\r", () => {
-    expect(convertTextareaToHTML(this.newLineAndReturn.original)).toBe(this.newLineAndReturn.expected);
+  it('converts \\n\\r to <br>\\n\\r', () => {
+    expect(convertTextareaToHTML(this.newLineAndReturn.original))
+      .toBe(this.newLineAndReturn.expected);
   });
 
-  it("converts \\n to <br>\\n", () => {
-    expect(convertTextareaToHTML(this.newLineOnly.original)).toBe(this.newLineOnly.expected);
+  it('converts \\n to <br>\\n', () => {
+    expect(convertTextareaToHTML(this.newLineOnly.original))
+      .toBe(this.newLineOnly.expected);
   });
 
-  it("converts \\r to <br>\\r", () => {
-    expect(convertTextareaToHTML(this.returnOnly.original)).toBe(this.returnOnly.expected);
+  it('converts \\r to <br>\\r', () => {
+    expect(convertTextareaToHTML(this.returnOnly.original))
+      .toBe(this.returnOnly.expected);
   });
 
-  it("converts a string without line breaks", () => {
-    expect(convertTextareaToHTML(this.noLineBreaks.original)).toBe(this.noLineBreaks.expected);
+  it('converts a string without line breaks', () => {
+    expect(convertTextareaToHTML(this.noLineBreaks.original))
+      .toBe(this.noLineBreaks.expected);
   });
 
 });

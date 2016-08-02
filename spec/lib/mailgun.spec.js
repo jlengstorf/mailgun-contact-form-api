@@ -47,7 +47,7 @@ describe('Mailgun', () => {
       const message = Mailgun.buildMessageData(data);
       const expected = Object.assign({}, data, {
         to: 'Jason Lengstorf <jason@lengstorf.com>',
-        from: `${domain} <donotreply@${domain}>`
+        from: `${domain} <donotreply@${domain}>`,
       });
 
       expect(message).toEqual(expected);
@@ -82,7 +82,7 @@ describe('Mailgun', () => {
         }));
 
         done();
-      }
+      };
 
       Mailgun.sendMessage(data, successCB);
     });

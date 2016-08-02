@@ -52,20 +52,27 @@ exports.register = (server, options, next) => {
         html: toHTML(data.message),
       };
 
-      // Send off the message
-      Mailgun.sendMessage(message, response => {
+      // Define a callback to handle successful sends.
+      const successCB = response => {
         reply({
           statusCode: 200,
           message: 'Your message was sent successfully.',
         });
-      }, error => {
+      };
+
+      // Define a callback to handle errors.
+      const errorCB = error => {
         reply({
           statusCode: error.status,
           message: 'Something went wrong sending the message. Please try again.',
           api_message: error.message,
         }).code(error.status);
-      });
+      };
+
+      // Send off the message
+      Mailgun.sendMessage(message, successCB, errorCB);
     },
+
     config: {
       validate: {
         payload: submitSchema,
@@ -84,6 +91,7 @@ exports.register = (server, options, next) => {
         },
       },
     },
+
   });
 
   next();

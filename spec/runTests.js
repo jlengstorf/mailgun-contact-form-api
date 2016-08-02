@@ -10,14 +10,14 @@ const reporter = new Reporter({ isVerbose: true });
 
 // Configure Jasmine.
 jasmine.loadConfig({
-  "spec_dir": "spec",
-  "spec_files": [
-    "appSpec.js",
-    "**/*[sS]pec.js"
+  spec_dir: 'spec',
+  spec_files: [
+    'appSpec.js',
+    '**/*[sS]pec.js',
   ],
-  "helpers": [
-    "helpers/**/*.js"
-  ]
+  helpers: [
+    'helpers/**/*.js',
+  ],
 });
 
 // Add the custom reporter.
