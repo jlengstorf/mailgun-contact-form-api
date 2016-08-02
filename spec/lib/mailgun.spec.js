@@ -84,14 +84,7 @@ describe('Mailgun', () => {
         done();
       }
 
-      const errorCB = error => {
-
-        // If we get here, the test definitely failed.
-        expect(true).toBe(false);
-        done();
-      };
-
-      Mailgun.sendMessage(data, successCB, errorCB);
+      Mailgun.sendMessage(data, successCB);
     });
 
   });
