@@ -2,7 +2,7 @@
  * To avoid putting sensitive data (like API keys) into
  * source control, we’re using `.env` files with `dotenv`.
  */
-require('dotenv').config();
+require('dotenv').config({ silent: true });
 
 /**
  * To avoid sending useless emails during testing, mock a successful send.
