@@ -35,7 +35,11 @@ vim .env
 npm start
 ```
 
-Visit http://localhost:5000/status in your browser to verify that the app is running — it should display "Running!".
+Visit http://localhost:5000/status in your browser to verify that the app is running — it should display:
+
+```
+{"statusCode":200,"message":"API is running."}
+```
 
 ## Send a Test Message
 
