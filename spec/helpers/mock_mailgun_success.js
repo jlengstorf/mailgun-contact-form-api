@@ -1,5 +1,5 @@
 /*
- * To avoid putting sensitive data (like API keys) into
+ * To avoid putting sensitive data (like API keys) into
  * source control, we’re using `.env` files with `dotenv`.
  */
 require('dotenv').config({ silent: true });
@@ -11,7 +11,6 @@ require('dotenv').config({ silent: true });
  * @return {void}
  */
 const sendMessage = (_, successCB) => {
-
   // We always call the success callback with a fake Mailgun success message.
   successCB({
     id: `<20160802064403.1595.35462.0C989BE2@${process.env.MAILGUN_DOMAIN}>`,

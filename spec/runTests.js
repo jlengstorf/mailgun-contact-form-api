@@ -1,5 +1,3 @@
-'use strict';
-
 // Load Jasmine and a reporter.
 const Jasmine = require('jasmine');
 const Reporter = require('jasmine-terminal-reporter');

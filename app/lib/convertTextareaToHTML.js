@@ -5,7 +5,7 @@
  */
 function convertTextareaToHTML(str) {
   const newLineRegex = new RegExp(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g);
-  const withBreakTags = (str + '').replace(newLineRegex, '$1<br>$2');
+  const withBreakTags = `${str}`.replace(newLineRegex, '$1<br>$2');
   return `<p>${withBreakTags}</p>`;
 }
 

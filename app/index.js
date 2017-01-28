@@ -1,9 +1,8 @@
-'use strict';
-
 const server = require('./server');
+
 const port = process.env.PORT || 5000;
 
-server.createServer(port).start(err => {
+server.createServer(port).start((err) => {
   if (err) {
     console.log(err);
   }

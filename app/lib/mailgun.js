@@ -1,10 +1,8 @@
-'use strict';
-
 // See https://www.npmjs.com/package/mailgun.js
 const mailgun = require('mailgun.js');
 
 /*
- * To avoid putting sensitive data (like API keys) into
+ * To avoid putting sensitive data (like API keys) into
  * source control, we’re using `.env` files with `dotenv`.
  */
 require('dotenv').config({ silent: true });

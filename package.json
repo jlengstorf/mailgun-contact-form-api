@@ -7,7 +7,7 @@
     "start": "node app",
     "test": "npm run js-style --silent && npm run cover",
     "cover": "istanbul cover spec/runTests.js",
-    "js-style": "jscs app/ spec/"
+    "js-style": "eslint app/ spec/"
   },
   "repository": {
     "type": "git",
@@ -26,17 +26,19 @@
   },
   "homepage": "https://github.com/jlengstorf/mailgun-contact-form-api#readme",
   "dependencies": {
-    "dotenv": "^2.0.0",
-    "hapi": "^14.0.0",
-    "joi": "^9.0.4",
+    "dotenv": "^4.0.0",
+    "hapi": "^16.1.0",
+    "joi": "^10.2.0",
     "lodash.escape": "^4.0.1",
     "mailgun.js": "^2.0.1"
   },
   "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
     "istanbul": "^0.4.4",
     "jasmine": "^2.4.1",
     "jasmine-terminal-reporter": "^1.0.2",
-    "jscs": "^3.0.7",
-    "mockery": "^1.7.0"
+    "mockery": "^2.0.0"
   }
 }
