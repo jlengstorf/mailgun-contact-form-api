@@ -2,7 +2,7 @@
  * To avoid putting sensitive data (like API keys) into
  * source control, we’re using `.env` files with `dotenv`.
  */
-require('dotenv').config();
+require('dotenv').config({ silent: true });
 
 /**
  * To simulate Mailgun API errors during testing, mock a failed send.

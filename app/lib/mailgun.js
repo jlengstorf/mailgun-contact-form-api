@@ -7,7 +7,7 @@ const mailgun = require('mailgun.js');
  * To avoid putting sensitive data (like API keys) into
  * source control, we’re using `.env` files with `dotenv`.
  */
-require('dotenv').config();
+require('dotenv').config({ silent: true });
 
 // A no-op function to use as a fallback if no callbacks are supplied.
 const noop = () => {};
