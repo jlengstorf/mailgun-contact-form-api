@@ -1,9 +1,6 @@
-'use strict';
-
 const convertTextareaToHTML = require('../../app/lib/convertTextareaToHTML').convertTextareaToHTML;
 
 describe('Convert textarea field value to HTML', () => {
-
   beforeAll(() => {
     this.returnAndNewLine = {
       original: 'foo\r\nbar',
@@ -51,5 +48,4 @@ describe('Convert textarea field value to HTML', () => {
     expect(convertTextareaToHTML(this.noLineBreaks.original))
       .toBe(this.noLineBreaks.expected);
   });
-
 });

@@ -1,4 +1,5 @@
-'use strict';
+const statusRoute = require('./routes/status');
+const submitRoute = require('./routes/submit');
 
 /*
  * Hapi is a very simple way to build REST APIs.
@@ -18,13 +19,13 @@ function createServer(port) {
   // Register each of the routes as a plugin & set the prefix for the endpoint.
   server.register([
     {
-      register: require('./routes/status'),
+      register: statusRoute,
       routes: {
         prefix: '/status',
       },
     },
     {
-      register: require('./routes/submit'),
+      register: submitRoute,
       routes: {
         prefix: '/submit',
       },

@@ -1,5 +1,3 @@
-'use strict';
-
 // Hapi comes with Joi baked in for validation
 const Joi = require('joi');
 
@@ -30,18 +28,17 @@ const errorMessages = {
  * Exports a Hapi plugin for the `/submit` route.
  */
 exports.register = (server, options, next) => {
-
   // Add the route for submitting contact form messages.
   server.route({
     method: 'POST',
     path: '/',
     handler: (request, reply) => {
-
       // We do basic HTML escaping to avoid sneaky stuff.
       const data = {};
-      for (let field in request.payload) {
+
+      Object.keys(request.payload).forEach((field) => {
         data[field] = escapeInput(request.payload[field]);
-      }
+      });
 
       // Assemble the form submission into the necessary email format.
       const message = {
@@ -53,7 +50,7 @@ exports.register = (server, options, next) => {
       };
 
       // Define a callback to handle successful sends.
-      const successCB = response => {
+      const successCB = () => {
         reply({
           statusCode: 200,
           message: 'Your message was sent successfully.',
@@ -61,7 +58,7 @@ exports.register = (server, options, next) => {
       };
 
       // Define a callback to handle errors.
-      const errorCB = error => {
+      const errorCB = (error) => {
         reply({
           statusCode: error.status,
           message: 'Something went wrong sending the message. Please try again.',
@@ -77,7 +74,6 @@ exports.register = (server, options, next) => {
       validate: {
         payload: submitSchema,
         failAction: (request, reply, source, error) => {
-
           // Build an object with invalid fields and helpful error messages.
           const messages = error.data.details.map(e => ({
             field: e.path,
@@ -95,7 +91,6 @@ exports.register = (server, options, next) => {
   });
 
   next();
-
 };
 
 exports.register.attributes = {

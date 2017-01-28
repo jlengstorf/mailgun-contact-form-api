@@ -1,7 +1,5 @@
-'use strict';
-
 /*
- * To avoid putting sensitive data (like API keys) into
+ * To avoid putting sensitive data (like API keys) into
  * source control, we’re using `.env` files with `dotenv`.
  */
 require('dotenv').config({ silent: true });
@@ -9,18 +7,14 @@ require('dotenv').config({ silent: true });
 const Mailgun = require('../../app/lib/mailgun');
 
 describe('Mailgun', () => {
-
   describe('client creation', () => {
-
     it('gets a Mailgun API client object', () => {
       const mg = Mailgun.getMailgunClient(process.env.MAILGUN_API_KEY);
       expect(mg.constructor.name).toEqual('Client');
     });
-
   });
 
   describe('message formatting', () => {
-
     it('converts the data to a valid Mailgun API message object', () => {
       const data = {
         from: 'Tester <test@example.com>',
@@ -64,19 +58,17 @@ describe('Mailgun', () => {
 
       expect(message.subject).toEqual('');
     });
-
   });
 
   describe('message sending', () => {
-
-    it('sends a message', done => {
+    it('sends a message', (done) => {
       const data = {
         from: 'Jasmine <jasmine@example.com>',
         subject: 'Jasmine Testing',
         html: '<p>Test.</p>',
       };
 
-      const successCB = response => {
+      const successCB = (response) => {
         expect(response).toEqual(jasmine.objectContaining({
           message: 'Queued. Thank you.',
         }));
@@ -86,7 +78,5 @@ describe('Mailgun', () => {
 
       Mailgun.sendMessage(data, successCB);
     });
-
   });
-
 });

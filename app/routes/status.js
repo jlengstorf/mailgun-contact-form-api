@@ -1,7 +1,4 @@
-'use strict';
-
 exports.register = (server, options, next) => {
-
   server.route({
     method: 'GET',
     path: '/',
@@ -14,7 +11,6 @@ exports.register = (server, options, next) => {
   });
 
   next();
-
 };
 
 exports.register.attributes = {
