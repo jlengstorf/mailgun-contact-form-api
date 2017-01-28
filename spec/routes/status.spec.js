@@ -10,7 +10,7 @@ describe('Status Check', () => {
 
     server.inject(options, response => {
       expect(response.statusCode).toBe(200);
-      expect(response.result).toBe('Running!');
+      expect(response.result.message).toBe('API is running.');
       done();
     });
   });
