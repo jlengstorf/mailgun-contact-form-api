@@ -5,3 +5,10 @@ engines:
     checks:
       import/no-unresolved:
         enabled: false
+ratings:
+  paths:
+  - app/**
+  - spec/**
+exclude_paths:
+- coverage/**/*
+- node_modules/**/*
