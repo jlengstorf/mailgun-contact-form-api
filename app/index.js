@@ -4,8 +4,8 @@ const port = process.env.PORT || 5000;
 
 server.createServer(port).start((err) => {
   if (err) {
-    console.log(err);
+    throw new Error(err);
   }
 
-  console.log(`server is running at http://localhost:${port}/`);
+  return `server is running at http://localhost:${port}/`;
 });
