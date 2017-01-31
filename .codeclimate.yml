@@ -23,3 +23,8 @@ ratings:
 exclude_paths:
 - coverage/**/*
 - node_modules/**/*
+ignore_fingerprints:
+- e6dcc31607f95950f35c4630807c773f
+- 9968e65cb8ff3f6ac453f3413613e960
+- ceb27f17228ec68df33676a736ee8045
+- e9770c9be6905b9dba54944eca6cc967
