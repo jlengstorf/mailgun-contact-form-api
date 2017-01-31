@@ -1,10 +1,21 @@
+---
 engines:
   eslint:
     enabled: true
-    channel: "eslint-2"
+    channel: eslint-2
     checks:
       import/no-unresolved:
         enabled: false
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
+  fixme:
+    enabled: true
 ratings:
   paths:
   - app/**
