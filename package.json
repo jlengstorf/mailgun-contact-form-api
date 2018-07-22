@@ -27,7 +27,7 @@
   "homepage": "https://github.com/jlengstorf/mailgun-contact-form-api#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "hapi": "^16.1.0",
+    "hapi": "^17.0.0",
     "joi": "^10.2.0",
     "lodash.escape": "^4.0.1",
     "mailgun.js": "^2.0.1"
